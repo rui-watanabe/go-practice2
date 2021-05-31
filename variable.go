@@ -30,6 +30,14 @@ func Later() func(string) string {
 	}
 }
 
+func Generator() func() int {
+	i := 0
+	return func() int {
+		i++
+		return i
+	}
+}
+
 func main() {
 	localVariable()
 	fmt.Println(i, f64, s, t, f)
@@ -39,5 +47,11 @@ func main() {
 	fmt.Println(f("hey"))
 	fmt.Println(f("foo"))
 	fmt.Println(f("hoge"))
+
+	countGenerator := Generator()
+	fmt.Println(countGenerator())
+	fmt.Println(countGenerator())
+	fmt.Println(countGenerator())
+	fmt.Println(countGenerator())
 
 }
