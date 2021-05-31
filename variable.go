@@ -21,7 +21,23 @@ func localVariable() {
 	fmt.Printf("%T\n", xf32)
 }
 
+func Later() func(string) string {
+	var store string
+	return func(next string) string {
+		s := store
+		store = next
+		return s
+	}
+}
+
 func main() {
 	localVariable()
 	fmt.Println(i, f64, s, t, f)
+
+	f := Later()
+	fmt.Println(f("hello"))
+	fmt.Println(f("hey"))
+	fmt.Println(f("foo"))
+	fmt.Println(f("hoge"))
+
 }
