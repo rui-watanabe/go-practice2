@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 //関数内で宣言が可能
 var (
@@ -38,6 +41,18 @@ func Generator() func() int {
 	}
 }
 
+func strConv() {
+	// var s string = "-42"
+	var s string = "A"
+
+	i, err := strconv.Atoi(s)
+
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Printf("i = %T\n", i)
+}
+
 func main() {
 	localVariable()
 	fmt.Println(i, f64, s, t, f)
@@ -54,4 +69,5 @@ func main() {
 	fmt.Println(countGenerator())
 	fmt.Println(countGenerator())
 
+	strConv()
 }
