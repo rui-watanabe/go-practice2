@@ -53,6 +53,14 @@ func strConv() {
 	fmt.Printf("i = %T\n", i)
 }
 
+func mapRoop() {
+	m := map[string]int{"apple": 100, "banana": 200}
+
+	for _, v := range m {
+		fmt.Println(v)
+	}
+}
+
 func main() {
 	localVariable()
 	fmt.Println(i, f64, s, t, f)
@@ -70,4 +78,6 @@ func main() {
 	fmt.Println(countGenerator())
 
 	strConv()
+
+	mapRoop()
 }
