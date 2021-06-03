@@ -61,6 +61,34 @@ func mapRoop() {
 	}
 }
 
+func anything(a interface{}) {
+	fmt.Println(a)
+}
+
+func switchFunc() {
+	var x interface{} = 3
+	i := x.(int)
+	fmt.Println(i + 2)
+
+	switch x.(type) {
+	case int:
+		fmt.Println("int")
+	case string:
+		fmt.Println("string")
+	default:
+		fmt.Println("I don't know")
+	}
+
+	switch v := x.(type) {
+	case int:
+		fmt.Println(v, "int")
+	case string:
+		fmt.Println(v, "string")
+	default:
+		fmt.Println(v, "I don't know")
+	}
+}
+
 func main() {
 	localVariable()
 	fmt.Println(i, f64, s, t, f)
@@ -80,4 +108,7 @@ func main() {
 	strConv()
 
 	mapRoop()
+
+	switchFunc()
+
 }
