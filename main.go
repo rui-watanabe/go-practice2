@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"strconv"
 )
 
@@ -89,6 +90,14 @@ func switchFunc() {
 	}
 }
 
+func deferFunc() {
+	file, err := os.Create("test.txt")
+	if err != nil {
+		fmt.Print(err)
+	}
+	defer file.Close()
+}
+
 func main() {
 	localVariable()
 	fmt.Println(i, f64, s, t, f)
@@ -111,4 +120,5 @@ func main() {
 
 	switchFunc()
 
+	deferFunc()
 }
