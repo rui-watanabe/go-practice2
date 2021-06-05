@@ -98,6 +98,26 @@ func deferFunc() {
 	defer file.Close()
 }
 
+func double(i *int) {
+	*i = *i * 2
+}
+
+func pointerFunc() {
+	var n int = 300
+	fmt.Println(n)
+
+	var p *int = &n
+	fmt.Println(p)
+	fmt.Println(*p)
+
+	*p = 200
+	fmt.Println(n)
+
+	double(p)
+	fmt.Println(n)
+
+}
+
 func main() {
 	localVariable()
 	fmt.Println(i, f64, s, t, f)
@@ -121,4 +141,6 @@ func main() {
 	switchFunc()
 
 	deferFunc()
+
+	pointerFunc()
 }
