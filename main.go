@@ -118,6 +118,28 @@ func pointerFunc() {
 
 }
 
+type Point struct {
+	A string
+	B int
+	C bool
+}
+
+func Update(p *Point) {
+	p.A = "test"
+	p.B = 1
+	p.C = true
+}
+
+func structFunc() {
+	p := Point{"hoge", 0, false}
+	fmt.Println(p)
+	p2 := &Point{}
+	Update(p2)
+	fmt.Println(p2)
+	Update(&p)
+	fmt.Println(p)
+}
+
 func main() {
 	localVariable()
 	fmt.Println(i, f64, s, t, f)
@@ -143,4 +165,6 @@ func main() {
 	deferFunc()
 
 	pointerFunc()
+
+	structFunc()
 }
