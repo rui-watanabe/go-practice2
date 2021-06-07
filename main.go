@@ -130,6 +130,10 @@ func Update(p *Point) {
 	p.C = true
 }
 
+func (p *Point) Set(i int) {
+	p.B = i
+}
+
 func structFunc() {
 	p := Point{"hoge", 0, false}
 	fmt.Println(p)
@@ -138,6 +142,10 @@ func structFunc() {
 	fmt.Println(p2)
 	Update(&p)
 	fmt.Println(p)
+
+	p3 := &Point{}
+	p3.Set(2)
+	fmt.Println(*p3)
 }
 
 func main() {
