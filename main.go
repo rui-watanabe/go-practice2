@@ -124,6 +124,10 @@ type Point struct {
 	C bool
 }
 
+type BigPoint struct {
+	Point
+}
+
 func Update(p *Point) {
 	p.A = "test"
 	p.B = 1
@@ -146,6 +150,11 @@ func structFunc() {
 	p3 := &Point{}
 	p3.Set(2)
 	fmt.Println(*p3)
+
+	p4 := BigPoint{}
+	p4.Point.Set(2)
+	fmt.Println(p4)
+
 }
 
 func main() {
