@@ -138,6 +138,14 @@ func (p *Point) Set(i int) {
 	p.B = i
 }
 
+type Person struct {
+	Name string
+}
+
+type Persons struct {
+	Persons []*Person
+}
+
 func structFunc() {
 	p := Point{"hoge", 0, false}
 	fmt.Println(p)
@@ -155,6 +163,16 @@ func structFunc() {
 	p4.Point.Set(2)
 	fmt.Println(p4)
 
+	p5 := Person{"Ko"}
+	p6 := Person{"Jon"}
+	p7 := Person{"Mike"}
+
+	ps := Persons{}
+	ps.Persons = append(ps.Persons, &p5, &p6, &p7)
+
+	for _, p := range ps.Persons {
+		fmt.Println(p)
+	}
 }
 
 func main() {
