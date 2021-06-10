@@ -175,6 +175,39 @@ func structFunc() {
 	}
 }
 
+type Stringfy interface {
+	ToString() string
+}
+
+type Man struct {
+	Name string
+	Age  int
+}
+
+func (m *Man) ToString() string {
+	return fmt.Sprintf("Name=%v, Age=%v", m.Name, m.Age)
+}
+
+type Car struct {
+	Number string
+	Model  string
+}
+
+func (c *Car) ToString() string {
+	return fmt.Sprintf("Number=%v, Model=%v", c.Number, c.Model)
+}
+
+func interfaceFunc() {
+	vs := []Stringfy{
+		&Man{Name: "jon", Age: 32},
+		&Car{Number: "1111", Model: "A-1"},
+	}
+
+	for _, v := range vs {
+		fmt.Println(v.ToString())
+	}
+}
+
 func main() {
 	localVariable()
 	fmt.Println(i, f64, s, t, f)
@@ -202,4 +235,6 @@ func main() {
 	pointerFunc()
 
 	structFunc()
+
+	interfaceFunc()
 }
