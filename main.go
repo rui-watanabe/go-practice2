@@ -206,6 +206,10 @@ func (e *MyErr) Error() string {
 	return e.Message
 }
 
+func RaiseError() error {
+	return &MyErr{Message: "occurred error", ErrorCode: 1234}
+}
+
 func interfaceFunc() {
 	vs := []Stringfy{
 		&Man{Name: "jon", Age: 32},
@@ -216,8 +220,13 @@ func interfaceFunc() {
 		fmt.Println(v.ToString())
 	}
 
-	err := &MyErr{Message: "occurred error", ErrorCode: 1234}
-	fmt.Print(err.Message)
+	err := RaiseError()
+	fmt.Print(err.Error())
+
+	e, ok := err.(*MyErr)
+	if ok {
+		fmt.Println(e.ErrorCode)
+	}
 }
 
 func main() {
