@@ -197,6 +197,15 @@ func (c *Car) ToString() string {
 	return fmt.Sprintf("Number=%v, Model=%v", c.Number, c.Model)
 }
 
+type MyErr struct {
+	Message   string
+	ErrorCode int
+}
+
+func (e *MyErr) Error() string {
+	return e.Message
+}
+
 func interfaceFunc() {
 	vs := []Stringfy{
 		&Man{Name: "jon", Age: 32},
@@ -206,6 +215,9 @@ func interfaceFunc() {
 	for _, v := range vs {
 		fmt.Println(v.ToString())
 	}
+
+	err := &MyErr{Message: "occurred error", ErrorCode: 1234}
+	fmt.Print(err.Message)
 }
 
 func main() {
