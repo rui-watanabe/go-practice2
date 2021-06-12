@@ -210,6 +210,10 @@ func RaiseError() error {
 	return &MyErr{Message: "occurred error", ErrorCode: 1234}
 }
 
+func (p *Point) String() string {
+	return fmt.Sprintf("<<%v,%v, %v>>", p.A, p.B, p.C)
+}
+
 func interfaceFunc() {
 	vs := []Stringfy{
 		&Man{Name: "jon", Age: 32},
@@ -227,6 +231,9 @@ func interfaceFunc() {
 	if ok {
 		fmt.Println(e.ErrorCode)
 	}
+
+	p := &Point{"abc", 1234, true}
+	fmt.Println(p)
 }
 
 func main() {
