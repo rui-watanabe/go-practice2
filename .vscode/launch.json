@@ -13,5 +13,8 @@
       "env": {},
       "args": []
     }
-  ]
+  ],
+  "gopls": {
+    "completeUnimported": true
+  }
 }

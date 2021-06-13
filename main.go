@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"testGo/foo"
 )
 
 //関数内で宣言が可能
@@ -91,11 +92,11 @@ func switchFunc() {
 }
 
 func deferFunc() {
-	file, err := os.Create("test.txt")
-	if err != nil {
-		fmt.Print(err)
-	}
-	defer file.Close()
+	// file, err := os.Create("test.txt")
+	// if err != nil {
+	// 	fmt.Print(err)
+	// }
+	// defer file.Close()
 }
 
 func double(i *int) {
@@ -236,6 +237,11 @@ func interfaceFunc() {
 	fmt.Println(p)
 }
 
+func devideFileFunc() {
+	fmt.Println(foo.Max)
+	fmt.Println(foo.ReturnMin())
+}
+
 func main() {
 	localVariable()
 	fmt.Println(i, f64, s, t, f)
@@ -265,4 +271,6 @@ func main() {
 	structFunc()
 
 	interfaceFunc()
+
+	devideFileFunc()
 }
