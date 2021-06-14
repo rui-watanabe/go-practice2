@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"os"
+	// "os"
 	"strconv"
 	"testGo/foo"
 )
@@ -242,6 +242,16 @@ func devideFileFunc() {
 	fmt.Println(foo.ReturnMin())
 }
 
+func scopeFunc(s string) (b string) {
+	b = s
+	{
+		b := "bbb"
+		fmt.Println(b)
+	}
+	fmt.Println(b)
+	return b
+}
+
 func main() {
 	localVariable()
 	fmt.Println(i, f64, s, t, f)
@@ -273,4 +283,6 @@ func main() {
 	interfaceFunc()
 
 	devideFileFunc()
+
+	scopeFunc("AAA")
 }
