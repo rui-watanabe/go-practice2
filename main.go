@@ -252,6 +252,14 @@ func scopeFunc(s string) (b string) {
 	return b
 }
 
+func IsOne(i int) bool {
+	if i == 1 {
+		return true
+	} else {
+		return false
+	}
+}
+
 func main() {
 	localVariable()
 	fmt.Println(i, f64, s, t, f)
@@ -285,4 +293,6 @@ func main() {
 	devideFileFunc()
 
 	scopeFunc("AAA")
+
+	testFunc()
 }
