@@ -4,6 +4,7 @@ import (
 	"fmt"
 	// "os"
 	"strconv"
+	"testGo/alib"
 	"testGo/foo"
 )
 
@@ -294,5 +295,6 @@ func main() {
 
 	scopeFunc("AAA")
 
-	testFunc()
+	s := []int{1, 2, 3, 4, 5}
+	fmt.Println(alib.Average(s))
 }
